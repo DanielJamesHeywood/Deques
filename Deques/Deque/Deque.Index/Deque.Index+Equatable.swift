@@ -1,8 +1,9 @@
-//
-//  Deque.Index+Equatable.swift
-//  Deques
-//
-//  Created by Daniel James Heywood on 23/09/2025.
-//
 
-import Foundation
+extension Deque.Index: Equatable {
+    
+    @inlinable
+    public static func == (lhs: Deque<Element>.Index, rhs: Deque<Element>.Index) -> Bool {
+        lhs._ensureValid(with: rhs)
+        return lhs._offset == rhs._offset
+    }
+}
