@@ -59,11 +59,15 @@ extension Deque: BidirectionalCollection {
     
     @inlinable
     public var startIndex: Index {
-        return Index(_startOf: self)
+        get {
+            return Index(_startOf: self)
+        }
     }
     
     @inlinable
     public var endIndex: Index {
-        return Index(_endOf: self)
+        get {
+            return Index(_endOf: self)
+        }
     }
 }
