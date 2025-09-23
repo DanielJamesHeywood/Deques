@@ -42,3 +42,26 @@ extension Deque: Collection {
         index._offset += 1
     }
 }
+
+extension Deque: BidirectionalCollection {
+    
+    @inlinable
+    public func index(before index: Index) -> Index {
+        var newIndex = index
+        formIndex(before: &newIndex)
+        return newIndex
+    }
+    
+    @inlinable
+    public func formIndex(before index: inout Index) {
+        if let node = index._handle?.takeUnretainedValue() {
+            guard let previous = node.previous else {
+                preconditionFailure()
+            }
+            index._handle = previous
+        } else {
+            index._handle = _tail
+        }
+        index._offset -= 1
+    }
+}
