@@ -1,6 +1,7 @@
 
 extension Deque {
     
+    @usableFromInline
     internal class _Node {
         
         @usableFromInline
