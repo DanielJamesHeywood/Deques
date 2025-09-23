@@ -28,13 +28,13 @@ extension Deque {
     @inlinable
     public mutating func append(_ newElement: Element) {
         _invalidateIndices()
-        let newTail = _Node(element: newElement)
-        if let tail = _tail?.takeUnretainedValue() {
-            tail.next = newTail
+        let newNode = _Node(element: newElement)
+        if let node = _tail?.takeUnretainedValue() {
+            node.next = newNode
         } else {
-            _head = newTail
+            _head = newNode
         }
-        _tail = .passUnretained(newTail)
+        _tail = .passUnretained(newNode)
         _count += 1
     }
 }
