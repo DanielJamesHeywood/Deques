@@ -14,10 +14,10 @@ extension Deque {
         internal var _previous: Unmanaged<_Node>?
         
         @usableFromInline
-        internal init(element: Element, next: _Node? = nil, previous: _Node? = nil) {
+        internal init(element: Element) {
             self.element = element
-            self.next = next
-            self.previous = previous
+            self.next = nil
+            self.previous = nil
         }
         
         @inlinable
