@@ -40,6 +40,13 @@ extension Deque: BidirectionalCollection {
     }
     
     @inlinable
+    public func distance(from start: Index, to end: Index) -> Int {
+        start._ensureValid(for: self)
+        end._ensureValid(for: self)
+        return end._offset - start._offset
+    }
+    
+    @inlinable
     public subscript(position: Index) -> Element {
         get {
             position._ensureValid(for: self)
