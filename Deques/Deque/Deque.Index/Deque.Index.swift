@@ -28,3 +28,16 @@ extension Deque {
         }
     }
 }
+
+extension Deque.Index {
+    
+    @inlinable
+    internal func _ensureValid(for base: Deque) {
+        precondition(_version === base._version)
+    }
+    
+    @inlinable
+    internal func _ensureValid(with other: Deque.Index) {
+        precondition(_version === other._version)
+    }
+}
