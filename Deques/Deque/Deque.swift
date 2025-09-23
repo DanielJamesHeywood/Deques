@@ -26,6 +26,17 @@ public struct Deque<Element> {
 extension Deque {
     
     @inlinable
+    public init<S: Sequence>(_ sequence: S) where S.Element == Element {
+        self.init()
+        for element in sequence {
+            self.append(element)
+        }
+    }
+}
+
+extension Deque {
+    
+    @inlinable
     public mutating func append(_ newElement: Element) {
         _invalidateIndices()
         let newNode = _Node(element: newElement)
