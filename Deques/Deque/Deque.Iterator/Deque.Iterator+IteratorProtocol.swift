@@ -4,7 +4,7 @@ extension Deque.Iterator: IteratorProtocol {
     @inlinable
     public mutating func next() -> Element? {
         guard let node = _handle?.takeUnretainedValue() else {
-            preconditionFailure()
+            return nil
         }
         if let next = node.next {
             _handle = .passUnretained(next)
