@@ -6,3 +6,11 @@ extension Deque: CustomStringConvertible {
         return "[\(map({ element in String(reflecting: element) }).joined(separator: ", "))]"
     }
 }
+
+extension Deque: CustomDebugStringConvertible {
+    
+    @inlinable
+    public var debugDescription: String {
+        return "Deque(\(self))"
+    }
+}
