@@ -9,6 +9,7 @@ extension Deque.Iterator: IteratorProtocol {
         if let next = node.next {
             _handle = .passUnretained(next)
         } else {
+            _head = nil
             _handle = nil
         }
         return node.element
