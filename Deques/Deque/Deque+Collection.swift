@@ -12,6 +12,11 @@ extension Deque: Collection {
     }
     
     @inlinable
+    public func makeIterator() -> Iterator {
+        return Iterator(_startOf: self)
+    }
+    
+    @inlinable
     public subscript(position: Index) -> Element {
         get {
             guard let node = position._handle?.takeUnretainedValue() else {
