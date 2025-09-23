@@ -15,7 +15,7 @@ extension Deque: BidirectionalCollection {
             guard let previous = node.previous else {
                 preconditionFailure()
             }
-            index._handle = previous
+            index._handle = .passUnretained(previous)
         } else {
             index._handle = _tail
         }
