@@ -26,6 +26,20 @@ public struct Deque<Element> {
 extension Deque {
     
     @inlinable
+    public mutating func append(_ newElement: Element) {
+        _invalidateIndices()
+        if let tail = _tail?.takeUnretainedValue() {
+            <#statements#>
+        } else {
+            <#statements#>
+        }
+        _count += 1
+    }
+}
+
+extension Deque {
+    
+    @inlinable
     internal mutating func _invalidateIndices() {
         if !isKnownUniquelyReferenced(&_version) {
             _version = _Version()
