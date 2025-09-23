@@ -6,6 +6,9 @@ public struct Deque<Element> {
     internal var _head: _Node?
     
     @usableFromInline
+    internal var _tail: Unmanaged<_Node>?
+    
+    @usableFromInline
     internal var _count: Int
     
     @usableFromInline
