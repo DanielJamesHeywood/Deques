@@ -22,3 +22,13 @@ public struct Deque<Element> {
         self._version = _Version()
     }
 }
+
+extension Deque {
+    
+    @inlinable
+    internal mutating func _invalidateIndices() {
+        if !isKnownUniquelyReferenced(&_version) {
+            _version = _Version()
+        }
+    }
+}
