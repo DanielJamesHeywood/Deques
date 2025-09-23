@@ -12,8 +12,8 @@ extension Deque {
         
         @inlinable
         internal init(_startOf base: Deque) {
-            _head = base._head
-            _handle = base._head.map(Unmanaged.passUnretained)
+            self._head = base._head
+            self._handle = base._head.map(Unmanaged.passUnretained)
         }
     }
 }
