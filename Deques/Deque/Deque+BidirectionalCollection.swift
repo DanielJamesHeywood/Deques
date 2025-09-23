@@ -10,6 +10,7 @@ extension Deque: BidirectionalCollection {
     
     @inlinable
     public func formIndex(before index: inout Index) {
+        index._ensureValid(for: self)
         if let node = index._handle?.takeUnretainedValue() {
             guard let previous = node.previous else {
                 preconditionFailure()
@@ -30,6 +31,7 @@ extension Deque: BidirectionalCollection {
     
     @inlinable
     public func formIndex(after index: inout Index) {
+        index._ensureValid(for: self)
         guard let node = index._handle?.takeUnretainedValue() else {
             preconditionFailure()
         }
@@ -40,6 +42,7 @@ extension Deque: BidirectionalCollection {
     @inlinable
     public subscript(position: Index) -> Element {
         get {
+            position._ensureValid(for: self)
             guard let node = position._handle?.takeUnretainedValue() else {
                 preconditionFailure()
             }
