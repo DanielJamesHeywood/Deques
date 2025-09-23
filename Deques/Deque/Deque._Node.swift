@@ -10,7 +10,7 @@ extension Deque {
         @usableFromInline
         internal let next: _Node?
         
-        @inlinable
+        @usableFromInline
         internal init(element: Element, next: _Node? = nil) {
             self.element = element
             self.next = next
