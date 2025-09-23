@@ -3,7 +3,7 @@ extension Deque: Equatable where Element: Equatable {
     
     @inlinable
     public static func == (lhs: Deque, rhs: Deque) -> Bool {
-        guard lhs.count == rhs.count else {
+        guard lhs._count == rhs._count else {
             return false
         }
         for (lhElement, rhElement) in zip(lhs, rhs) {
